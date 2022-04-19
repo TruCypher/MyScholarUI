@@ -1,24 +1,65 @@
-import logo from './logo.svg';
-import './App.css';
+
+import React, { useState } from 'react';
+
+import Header from './Components/Header'
+import Footer from './Components/Footer';
+import SignInForm from './User/SignInForm'
+import SignUpForm from './User/SignUpForm';
+import Profile from './User/Profile';
+
+import Form from './User/Form';
+import Scholarship from './User/Scholarship';
+import EssayHelp from './User/EssayHelp';
+
+
+import { 
+Routes, 
+Route,
+} from "react-router-dom";
+
+
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(true)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className='bg-dark min-h-screen'>
+        <Header loggedIn={loggedIn}></Header>
+          <Routes>
+
+            <Route
+              path="/signin"
+              element={ <SignInForm setLoggedIn={setLoggedIn} />}>
+            </Route>
+
+            <Route
+              path="/signup"
+              element={ <SignUpForm setLoggedIn={setLoggedIn} />}>
+            </Route>
+
+            <Route
+              path="/"
+              element={ <Profile />}>
+            </Route>
+
+            <Route
+              path="/form"
+              element={ <Form />}>
+            </Route>
+
+            <Route
+              path="/scholarship"
+              element={ <Scholarship />}>
+            </Route>
+
+            <Route
+              path="/essayshelp"
+              element={ <EssayHelp />}>
+            </Route>
+
+          </Routes>
+        <Footer></Footer>
+      </div>
   );
 }
 
