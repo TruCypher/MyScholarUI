@@ -1,8 +1,11 @@
+import React, { useState } from 'react'
+
 import { 
     useParams 
 } from "react-router-dom";
 
 function ScholarshipDetail() {
+    const [submit, setSubmit] = useState(false)
 
     const scholarShips = [
         {
@@ -65,6 +68,13 @@ function ScholarshipDetail() {
         )
     }
 
+    console.log(submit)
+    if (submit) {
+        return (
+            <SuccessApplication currentScholarObj={currentScholarObj}/>
+        )
+    }
+
     return (
         <div className="m-5 p-2">
             <h1 className='text-xl text-yellow font-bold font-inter justify-center mb-2'>Scholarships Detail</h1>
@@ -89,9 +99,24 @@ function ScholarshipDetail() {
             </div>
 
             <div className="flex min-w-full justify-center mt-10">
-                <button className="m-2 font-inter text-dark text-base border-2 p-1.5 pr-6 pl-6 bg-green rounded-lg hover:cursor-pointer"> Apply Now </button>
+                <button className="m-2 font-inter text-dark text-base border-2 p-1.5 pr-6 pl-6 bg-green rounded-lg hover:cursor-pointer" onClick={() => setSubmit(true)}> Apply Now </button>
             </div>
         </div>
+    )
+}
+
+function SuccessApplication ({ currentScholarObj }) {
+    return (
+        <div className="flex h-96">
+            <div className='m-auto'>
+                <h1 className='text-xl text-success font-bold font-inter justify-center mb-2'>Congradulation You Have Applied To:</h1>
+                <BoxMessage 
+                    title={currentScholarObj.name}
+                    body={[currentScholarObj.price, currentScholarObj.date]}
+                />
+            </div>
+        </div>
+
     )
 }
 
