@@ -62,7 +62,6 @@ function App() {
               path="/scholarship/:scholarname"
               element={ <ScholarshipDetail />}>
             </Route>
-
           </Routes>
         <Footer></Footer>
       </div>
