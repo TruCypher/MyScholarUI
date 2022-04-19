@@ -10,6 +10,7 @@ import Profile from './User/Profile';
 import Form from './User/Form';
 import Scholarship from './User/Scholarship';
 import EssayHelp from './User/EssayHelp';
+import ScholarshipDetail from './User/ScholarshipDetail';
 
 
 import { 
@@ -55,6 +56,11 @@ function App() {
             <Route
               path="/essayshelp"
               element={ <EssayHelp />}>
+            </Route>
+
+            <Route
+              path="/scholarship/:scholarname"
+              element={ <ScholarshipDetail />}>
             </Route>
 
           </Routes>

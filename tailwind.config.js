@@ -7,6 +7,7 @@ module.exports = {
       '2xl': '1902px',
     },
     colors: {
+      red: '#E13B3B',
       grey: '#D8D8D8',
       white: '#FFFFFF',
       success: '#71FF90',

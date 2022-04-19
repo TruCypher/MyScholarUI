@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import { 
+Link,
+} from "react-router-dom";
+
 
 function Wizard() {
     const [wizard, setWizard] = useState(2)
@@ -63,16 +67,18 @@ function ScholarDueSoon() {
             {
                 scholarShips.map(scholar => {
                     return (
-                        <div className='flex justify-between border-4 border-green p-5 rounded-xl mb-5'>
-                            <div>
-                                <h1 className='text-white text-2xl font-bold font-inter mb-4'>{scholar.name}</h1> 
-                                <p className='text-white font-inter'>{scholar.price}</p>
+                        <Link to={`/scholarship/${scholar.name}`} className="mb-8">
+                            <div className='flex justify-between border-4 border-green p-5 rounded-xl'>
+                                <div>
+                                    <h1 className='text-white text-2xl font-bold font-inter mb-4'>{scholar.name}</h1> 
+                                    <p className='text-white font-inter'>{scholar.price}</p>
+                                </div>
+                                <div>
+                                    <p className='text-white font-inter mb-4'>{scholar.date}</p>
+                                    <p className='text-white font-inter'>Essay Required</p>
+                                </div> 
                             </div>
-                            <div>
-                                <p className='text-white font-inter mb-4'>{scholar.date}</p>
-                                <p className='text-white font-inter'>Essay Required</p>
-                            </div> 
-                        </div>
+                        </Link>
                     )
                 })
             }
